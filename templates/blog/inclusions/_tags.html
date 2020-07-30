@@ -1,0 +1,9 @@
+<div class="widget widget-tag-cloud">
+    <ul>
+        {% for tag in tag_list %}
+        <li><a href="#">{{ tag.name }}</a></li>
+        {% empty %}
+        暂无标签
+        {% endfor %}
+    </ul>
+</div>
