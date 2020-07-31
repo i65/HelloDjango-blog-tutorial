@@ -6,14 +6,15 @@ from django.shortcuts import render, get_object_or_404, HttpResponse
 from .models import Post, Category, Tag
 
 from django.views.generic import ListView, DetailView
+from pure_pagination import PaginationMixin
 
 
 # Create your views here.
-class IndexView(ListView):
+class IndexView(PaginationMixin, ListView):
     model = Post
     template_name = 'blog/index.html'
     context_object_name = 'post_list'
-    paginate_by = 10
+    paginate_by = 5
 
 
 class PostDetailview(DetailView):
