@@ -41,10 +41,12 @@ class Post(models.Model):
     tags = models.ManyToManyField(Tag, blank=True, verbose_name='标签')
 
     author = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='作者')
+    views = models.PositiveIntegerField('阅读数', default=0, editable=False)
 
     class Meta:
         verbose_name = '文章'
         verbose_name_plural = verbose_name
+        ordering = ['-created_time', 'title']
 
     def __str__(self):
         return self.title
@@ -63,3 +65,7 @@ class Post(models.Model):
 
         self.excerpt = strip_tags(md.convert(self.body))[:54]
         super().save(*args, **kwargs)
+
+    def increase_views(self):
+        self.views += 1
+        self.save(update_fields=['views'])
