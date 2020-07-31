@@ -54,7 +54,6 @@ class Post(models.Model):
         return reverse('blog:detail', kwargs={'pk': self.pk})
 
     def save(self, *args, **kwargs):
-
         # 首先实例化一个 Markdown 类，用于渲染 body 的文本
         # 由于摘要并不需要生成文章目录，所以去掉了目录拓展
         md = markdown.Markdown(extensions=[
