@@ -6,7 +6,7 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-django = {index = "https://pypi.tuna.tsinghua.edu.cn/simple/",version = "==2.2.10"}
+django = {index = "https://pypi.tuna.tsinghua.edu.cn/simple/",version = "==2.2.27"}
 markdown = "*"
 django-simpleui = {index = "https://pypi.tuna.tsinghua.edu.cn/simple/",version = "*"}
 
